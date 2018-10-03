@@ -172,6 +172,7 @@ bar {
 }
 
 exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/clipit
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id xautolock -time 5 -locker "/usr/local/bin/lock"
