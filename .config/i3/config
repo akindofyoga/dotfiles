@@ -39,6 +39,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- # decrease screen brightness
+
 # Spotify related key bindings
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -175,5 +179,9 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/clipit
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id xautolock -time 5 -locker "/usr/local/bin/lock"
+# exec --no-startup-id xautolock -time 5 -locker "/usr/local/bin/lock"
 exec --no-startup-id feh --bg-scale /home/roger/Pictures/laferrari.jpg
+exec --no-startup-id xss-lock -- i3lock -n -c 000000
+exec --no-startup-id xset dpms 300 300 300
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Click Method Enabled" 0 1
+exec --no-startup-id xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0
