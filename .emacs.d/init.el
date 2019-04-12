@@ -82,3 +82,7 @@
   )
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(setq-default fill-column 80)
+(require 'fill-column-indicator)
+(add-hook 'after-change-major-mode-hook 'fci-mode)
