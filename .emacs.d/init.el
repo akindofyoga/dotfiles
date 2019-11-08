@@ -1,4 +1,4 @@
-; Appearence customization 
+; Appearence customization
 ;; (set-frame-parameter (selected-frame) 'alpha '(85 85))
 
 ;;   (add-to-list 'default-frame-alist '(alpha 85 85))
@@ -33,7 +33,7 @@
 
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
- 	
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
@@ -44,13 +44,24 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   (quote
+    (fill-column-indicator rainbow-delimiters pdf-tools auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "green"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "violet"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "white"))))
+ '(rainbow-delimiters-unmatched-face ((t (:background "cyan")))))
 
 ;; Use pdf-tools to open PDF files
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
@@ -60,17 +71,7 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; rainbow-delimiters-mode setup, with decreasing bracket size
-(custom-set-faces
- '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "green"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "blue"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "violet"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "purple"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "white"))))
- '(rainbow-delimiters-unmatched-face ((t (:background "cyan"))))
- )
+
 
 ;; from https://stackoverflow.com/a/2680682/859277
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
@@ -86,3 +87,7 @@
 (setq-default fill-column 80)
 (require 'fill-column-indicator)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
+
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
