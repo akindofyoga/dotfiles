@@ -63,6 +63,7 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "white"))))
  '(rainbow-delimiters-unmatched-face ((t (:background "cyan")))))
 
+(pdf-loader-install)
 ;; Use pdf-tools to open PDF files
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-source-correlate-start-server t)
@@ -92,3 +93,7 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+(setq
+   split-width-threshold 0
+   split-height-threshold nil)
